@@ -60,12 +60,13 @@ RPCFunction rpc_acce_alldata(&rpc_call_alldata, "rpc_call_alldata");
 
 Timer timer1;
 float tt[3], origin[3];
-int first_pos = 0, flag = 0, flag3 = 1, all_cnt = 0, cnt = 1, flag2 = 0, all_i = 0;
+int first_pos = 0, flag3 = 1, all_cnt = 0, cnt = 1, flag2 = 0, all_i = 0;
 float all_x[50], all_y[50], all_z[50];
 
 int main(){
   pc.baud(9600);
   char xbee_reply[4];
+  printf("AAA");
   xbee.baud(9600);
   xbee.printf("+++");
   xbee_reply[0] = xbee.getc();

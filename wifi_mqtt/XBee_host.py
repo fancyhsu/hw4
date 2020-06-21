@@ -47,12 +47,14 @@ samples = 10
 x = np.zeros(samples)
 t = np.arange(1,samples+1)
 
-i = 0
+i = 1
 while i<=samples:
     s.write("/rpc_call/run\r".encode())
     line = s.readline()
     line = line.decode()
-    if i != 0: 
+    # line = line.split("\r")[0]
+    # print(line)
+    if i != 0 and line != '\r\n': 
         if int(line[0]) > 1:
             if len(line) == 2:
                 x[i-1] = int(line[0])
@@ -70,7 +72,7 @@ for k in range(data_num):
     line = s.readline()
     line = line.decode()
     allline.append(line)
-    time.sleep(0.1)
+    time.sleep(0.2)
     print(line.split())
 s.close()
 
@@ -121,8 +123,11 @@ while num < data_num:
       num += 1
 ret = mqttc.publish(topic, 'F', qos=0)
 
+print(tt)
+
 fig, ax = plt.subplots(1, 1)
 ax.plot(t,x)
 ax.set_xlabel('Timestamp')
 ax.set_ylabel('Number')
 plt.show()
+

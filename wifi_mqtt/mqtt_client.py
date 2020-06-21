@@ -35,7 +35,7 @@ def on_message(mosq, obj, msg):
             plt.plot(tt,xx,'g',label = 'x')
             plt.plot(tt,yy,'r',label = 'y')
             plt.plot(tt,zz,'b',label = 'z')
-            plt.title("hw4")
+            plt.title("Acceleeration Plot")
             plt.xlabel('Timestamp')
             plt.ylabel('acc value')
             plt.show()
